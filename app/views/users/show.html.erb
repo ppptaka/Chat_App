@@ -1,0 +1,9 @@
+<div class="user_show">
+    <img src=<%= @user.image %> class="user_icon_image">
+    <p class="user_name"><%= @user.first_name + " " + @user.last_name %></p>
+    <br/>
+	<%if @user.id == current_user.id%>
+    <%= link_to 'edit',users_edit_path(id: @user.id), class: 'back_text' %>
+  <%end%>
+    <%= link_to 'bakc', chat_rooms_path, class: 'back_text' %>
+</div>

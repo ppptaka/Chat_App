@@ -1,0 +1,14 @@
+<div class="nav_menus">
+<h2 class="main_text">
+  Create Chat Room
+  <br/>
+</h2>
+<%= form_for @chat_room do |f| %>
+  <div class="form-group">
+  <%= f.label :title, class:"nav_menu" %>
+  <%= f.text_field :title, autofocus: true, class: "creatroom", maxlength:"15" %>
+  <%= f.submit "Save",class:"save_menu"%>
+  <%= link_to "Back", chat_rooms_path, class:"nav_text" %>
+  </div>
+<% end %>
+</div>

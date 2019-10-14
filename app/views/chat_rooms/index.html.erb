@@ -1,0 +1,47 @@
+<body>
+
+	<section class="home page layer">
+	<h1>Chat Place</h1>
+　</section>　
+
+<nav class="layer">
+  <ul>
+<div class="top_menu">
+  <li>
+  <%if user_signed_in?%>
+    <%= link_to "My Account", "/users/show/#{current_user.id}",class:"menu"%>
+    <% else %>
+    <%= "Your Account??"%>
+    <% end %>
+  </li>
+  
+  <li>
+    <% if user_signed_in? %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete,class:"menu"%>
+      <%else%>
+     <%= link_to 'Sign In',new_user_session_path, method: :post,class:"menu"%>
+      <% end %>
+  </li>
+   <li>
+     <%= link_to 'Create Chatroom', new_chat_room_path, class:"menu"%>
+  </li>
+</div>
+
+<div class="chatroom">
+<% @chat_rooms.each do |chat_room| %>
+<li>
+  <div class="chat_rooms">
+        <div><%= chat_room.title %></div>
+        <div><%= link_to "Enter", chat_room_path(chat_room), class: "menu"  %>
+        <%= link_to "Delete", chat_room_path(chat_room),method: :delete, class: "menu"  %></div>
+        <div>--Owner--    
+        <%= link_to chat_room.owner, "/users/show/#{chat_room.user_id}",id:"owner", class: "menu" %></div>
+      <%= chat_room.created_at %>
+</div>
+</li>
+<% end %>
+</div>
+
+</ul>
+</nav>
+</body>

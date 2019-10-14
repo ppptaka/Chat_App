@@ -1,0 +1,10 @@
+<div class="chat_title_text">
+  <%= @chat_room.title %>
+  </div>
+  <br/>
+  <div class="chat_show_back_botton">
+    <%= link_to 'Back', chat_rooms_path, class: "chat_show_back" %>
+  </div>
+
+<%= react_component('ChatRoom', { chat_room: @json_object }) %>
+
