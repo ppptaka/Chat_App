@@ -34,7 +34,6 @@ class ChatRoomsController < ApplicationController
         end
     end
 
-
     private
     def chat_room_params
         params.require(:chat_room).permit(:title)

@@ -17,7 +17,7 @@
  *{
   text-decoration: none;
   list-style: none;
-  overflow: auto;
+  overflow: scroll;
  }
 
  body {
@@ -215,7 +215,7 @@ textarea {
 
 .chat_all{
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .chat-message-area{

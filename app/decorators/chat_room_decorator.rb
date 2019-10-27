@@ -1,4 +1,4 @@
-class ChatRoomDecorator < Draper::Decorator #Modelの情報を少し加工してViewに表示
+class ChatRoomDecorator < Draper::Decorator #Modelの情報を加工してViewに表示
   delegate_all
 
   def owner #index.htmlで表示している

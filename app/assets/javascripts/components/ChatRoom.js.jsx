@@ -7,20 +7,20 @@ class ChatRoom extends React.Component {
       errors: []
     };
   }
-
+  
   newMessage(message){
     const { messages } = this.state;
-    const msgs = [...messages];
-    if(msgs.length >= 15) {
+    const msgs = messages;
+    if(msgs.length >= 75) {
       msgs.shift();
     }
     msgs.push(message);
     this.setState({messages: msgs, errors: []});
   }
 
-  postMessage(event){
-    {/*reactの色々な情報が入っている */}
-    event.preventDefault();
+  postMessage(event) {
+    {/*画面の遷移を行わないようにする */}
+    event.preventDefault()
     App.chatChannel.perform("send_message", { chat_room_id: this.props.chat_room.id, body: this.textInput.current.value }); {/*chat_room_channleを呼び出している*/}
     this.textInput.current.value = ""; {/*送信後入力フォームを空にしている*/}
   }
@@ -68,7 +68,7 @@ class ChatRoom extends React.Component {
     return (
       <div className="form-groups">
         {this.errorMessages()}
-        <form onSubmit={ this.postMessage.bind(this) }>  {/*bind(this)を書くと呼び出した先のthisが自分自身になる */}
+        <form onSubmit={ this.postMessage.bind(this) }>  {/*bind(this)を書くと呼び出した先のthisが呼び出し先自身になる */}
           <div>
             <textarea ref={this.textInput}  rows="8" cols="60" maxLength="50" withe="50px" className="textarea"/>
           </div>
@@ -83,7 +83,7 @@ class ChatRoom extends React.Component {
     return (
       <div className="chat_all">
         <div>
-        {this.form()}
+          {this.form()}
         </div>
         <MessageList messages={ messages } />
       </div> 

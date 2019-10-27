@@ -1,5 +1,5 @@
 class MessagesSerializer < ActiveModel::Serializer
-  attributes :id, :body, :written_at, :user, :full_name, :image
+  attributes :id, :body, :written_at, :user, :full_name, :image #メソッドに指定した値だけをレスポンス
 
  def id
    object.user.id
